@@ -54,6 +54,7 @@ const App = () => {
       console.error("Falha ao cunhar NFT", error);
     } finally {
       setIsClaiming(false);
+    
     }
   };
 
