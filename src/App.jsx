@@ -10,10 +10,8 @@ const App = () => {
 
   // inicializando o contrato editionDrop
   const editionDrop = useEditionDrop("0xA2Cd9116Cee3aE676a1096827369881C6fc6659F");
-
   // Verificação se o usuário possui a NFT passaporte
   const [hasClaimeNFT, setHasClaimedNFT] = useState(false);
-
   // isClaiming nos ajuda a saber se está no estado de carregamento enquanto o NFT é cunhado.
   const [isClaiming, setIsClaiming] = useState(false);
 
@@ -46,15 +44,20 @@ const App = () => {
   const mintNft = async () => {
     try {
       setIsClaiming(true);
+
       await editionDrop.claim("0", 1);
-      console.log(`🌊 Cunhado com sucesso! Olhe na OpenSea: https://testnets.opensea.io/assets/${editionDrop.getAddress()}/0`);
+
+      console.log(`🌊 Cunhado com sucesso! Olhe na OpenSea: 
+        https://testnets.opensea.io/assets/${editionDrop.getAddress()}/0`);
+
       setHasClaimedNFT(true);
+
     } catch (error) {
       setHasClaimedNFT(false);
       console.error("Falha ao cunhar NFT", error);
+
     } finally {
-      setIsClaiming(false);
-    
+      setIsClaiming(false);    
     }
   };
 
@@ -63,20 +66,25 @@ const App = () => {
     return(
       <div className="landing">
         <h1>Bem-vind@s à MMODAO - Para você que assim como eu ama um MMORPG 🙇‍♀️</h1>
-        <button onClick={connectWithMetamask} className="btn-hero">
+        <button onClick={ connectWithMetamask } className="btn-hero">
           Conect sua Carteira
         </button>
       </div>
-    );
+    )
   }
-
+  if (hasClaimeNFT) {
+    return(
+      <div className='member-page'>
+        <h1>🧙 Página da 🛡️🏹Legião dos Heróis🗡️🛡️ da MMODAO 🧙</h1>
+        <p>🌟 Juntos nossa XP irá sempre progredir ao maximo! 🌟</p>
+      </div>
+    )
+  };
   //Quando a carteira está conectada e temos o endereço do usuário
   return (
     <div className="mint-nft">
       <h1>Cunhe gratuitamente seu NFT Passaporte da MMODAO 🧙</h1>
-      <button
-        disabled={isClaiming}
-        onClick={mintNft}>
+      <button disabled={ isClaiming } onClick={ mintNft }>
         {isClaiming ? "Cunhando..." : "Cunhe seu NFT (GRATS)"}
       </button>
     </div>
