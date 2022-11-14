@@ -9,7 +9,7 @@ const App = () => {
   console.log("👋 Address:", address);
 
   // inicializando o contrato editionDrop
-  const editionDrop = useEditionDrop("0xA2Cd9116Cee3aE676a1096827369881C6fc6659F");
+  const editionDrop = useEditionDrop("0x94D7dbDC971cdB8a67393e793e7beB66f1727271");
   // Verificação se o usuário possui a NFT passaporte
   const [hasClaimeNFT, setHasClaimedNFT] = useState(false);
   // isClaiming nos ajuda a saber se está no estado de carregamento enquanto o NFT é cunhado.
@@ -75,7 +75,8 @@ const App = () => {
   if (hasClaimeNFT) {
     return(
       <div className='member-page'>
-        <h1>🧙 Página da 🛡️🏹Legião dos Heróis🗡️🛡️ da MMODAO 🧙</h1>
+        <h1>🧙Página da MMODAO🧙</h1>
+        <h1>🛡️🏹Legião dos Heróis🗡️🛡️</h1>
         <p>🌟 Juntos nossa XP irá sempre progredir ao maximo! 🌟</p>
       </div>
     )

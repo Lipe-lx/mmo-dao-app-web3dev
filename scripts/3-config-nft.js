@@ -1,7 +1,7 @@
 import sdk from "./1-initialize-sdk.js";
 import { readFileSync } from "fs";
 
-const editionDrop = sdk.getEditionDrop("0xA2Cd9116Cee3aE676a1096827369881C6fc6659F");
+const editionDrop = sdk.getEditionDrop("0x94D7dbDC971cdB8a67393e793e7beB66f1727271");
 
 (async () => {
     try{
