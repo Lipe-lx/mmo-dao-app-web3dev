@@ -1,0 +1,1 @@
+// logar no thirdweb https://thirdweb.com/dashboard e setar esta parte no contrato editionDrop

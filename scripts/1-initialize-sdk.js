@@ -8,15 +8,16 @@ dotenv.config();
 if(!process.env.PRIVATE_KEY || process.env.PRIVATE_KEY == "") {
     console.log("🛑 Chave privada não encontrada.")
 }
-if (!process.env.ALCHEMY_API_URL || process.env.ALCHEMY_API_URL == "") {
+if (!process.env.NODE_API_URL || process.env.NODE_API_URL == "") {
     console.log("🛑 Alchemy API não encontrada.")
 }  
 if (!process.env.WALLET_ADDRESS || process.env.WALLET_ADDRESS == "") {
     console.log("🛑 Endereço de carteira não encontrado.")
 }
 
+
 // RPC URL, nós usaremos nossa URL da API do Alchemy do nosso arquivo .env.
-const provider = new ethers.providers.JsonRpcProvider(process.env.ALCHEMY_API_URL);
+const provider = new ethers.providers.JsonRpcProvider(`${process.env.NODE_API_URL}`);
 //Chave privada da carteira (certifique de nao comitar o .env para nao ser roubado)
 const wallet = new ethers.Wallet(process.env.PRIVATE_KEY, provider);
 const sdk = new ThirdwebSDK(wallet);
